@@ -1,24 +1,9 @@
 import { type Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import localFont from 'next/font/local'
-import clsx from 'clsx'
+import { Layout } from '@/components/Layout'
 
 import { Providers } from '@/app/providers'
 
 import '@/styles/tailwind.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const monaSans = localFont({
-  src: '../fonts/Mona-Sans.var.woff2',
-  display: 'swap',
-  variable: '--font-mona-sans',
-  weight: '200 900',
-})
 
 export const metadata: Metadata = {
   title: 'Commit - Open-source Git client for macOS minimalists',
@@ -39,11 +24,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx('h-full antialiased', inter.variable, monaSans.variable)}
+      className="h-full antialiased"
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-white dark:bg-gray-950">
-        <Providers>{children}</Providers>
+        <Providers>
+          <Layout>
+            {children}
+          </Layout>
+        </Providers>
       </body>
     </html>
   )

@@ -69,7 +69,7 @@ function ArticleHeader({ id, date }: { id: string; date: string | Date }) {
   )
 }
 
-export const article = function Article({
+export const Article = function Article({
   id,
   date,
   children,
